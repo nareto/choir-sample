@@ -24,26 +24,28 @@ def ran_vector(length, sigma):
 
 def apply(args):
     n = int(args[3])
-    print args
-    
+        
     #let's get some random values for gains and silence padding
     gains = ran_vector(n, 8)
     pads = ran_vector(n, 0.03)
 
+    #lets build the ecasound command
     cmd = "ecasound "
 
     for i in range(n):
+        #we add n chains and on each we shift in time and apply gain reduction
         cmd += "-a:{0} -i playat,{1},{2} -eadb:{3} ".format(i, abs(pads[i]), args[1] ,- abs(gains[i]))
 
-    #now mix the files to obtain a single .wav file
-#    cmd += "-a:all -f:16,1,44100 -o {0}".format(args[2])  
+    #now mixdown all the chains to the output file
     cmd += "-a:all -z:mixmode,avg -f:16,1,44100 -o {0}".format(args[2])  
-    print cmd
+    print "We're running this command:","\n", cmd,"\n"
     os.system(cmd)
 
-    #normalize file
+    #finally normalize the file
+    print "\n", "Normalizing file:", "\n"
     os.system("ecanormalize {0}".format(args[2]))
 
+    print "\n", "Done"
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
