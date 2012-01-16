@@ -11,17 +11,17 @@
 
 import sys
 import os
-from random import uniform 
+from random import gauss
 
 def usage():
     print "USAGE: choir-sample.py infile.wav outfile.wav number_of_copies"
 
-def ran_vector(length, max):
-    """Returns list with uniform values between 0 and max """
+def ran_vector(length, sigma):
+    """Returns list with gaussian distributed values with mean 0 """
     
     ret = []
     for j in range(length):
-        ret.append(uniform(0,max))
+        ret.append(gauss(0,sigma))
     return ret
 
 def apply(args):
