@@ -1,12 +1,5 @@
 #!/usr/bin/env python2
 
-
-#this script uses ecasound to try and achieve the effect of many people hitting
-#a drum. It takes a sample, and performs the folowing operations multiple times:
-#-adds a randomized quantity of silence at the beginning
-#-makes a randomized gain attenuation
-#finally it mixes all down to the outfile and normalizes.
-
 import sys
 import os
 from random import gauss
