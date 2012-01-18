@@ -18,7 +18,7 @@ def ran_vector(length, sigma):
 def stereo(file):
     """Do mono to stereo conversion if necessary - allways returns stereo file"""
 
-    pass #for the moment we suppose all files are stereo
+    pass #for the moment we actually use only mono files....
 
 def apply(n,outfile,infiles):
     N = len(infiles)
@@ -35,7 +35,7 @@ def apply(n,outfile,infiles):
     for i,j,counter in [(i,j,i*(N+3) + j) for i in range(N) for j in range(n)]: 
         #for every one of the N files in infile we add n chains;
         #on each of those chains we shift in time and apply gain reduction
-        cmd += "-a:{0} -f:16,i,44100 -i playat,{1},{2} -eadb:{3} ".format(counter, abs(pads[counter]), infiles[i],- abs(gains[counter]))
+        cmd += "-a:{0} -f:16,1,44100 -i playat,{1},{2} -eadb:{3} ".format(counter, abs(pads[counter]), infiles[i],- abs(gains[counter]))
         #print counter, " : ", i,j
     #sys.exit()
 
