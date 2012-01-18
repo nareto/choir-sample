@@ -1,9 +1,11 @@
 choir_sample.py 
 
+WARNING: changed syntax from first versions
+
 This script uses ecasound to try and achieve the effect of many people hitting
 a drum. 
 
-It takes a sample, and performs the folowing operations multiple times:
+It takes N samples, and on each performs the folowing operations number_of_copies times:
 -adds a randomized quantity of silence at the beginning
 -makes a randomized gain attenuation
 
