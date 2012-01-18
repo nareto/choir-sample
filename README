@@ -2,6 +2,8 @@ choir_sample.py
 
 WARNING: changed syntax from first versions
 
+USAGE: choir-sample.py number_of_copies outfile infile1 [infile2 [infile3 ...[infileN]...]]
+
 This script uses ecasound to try and achieve the effect of many people hitting
 a drum. 
 
